@@ -8,7 +8,8 @@
                         <DragHandle />
                         {{ column.title }}
                     </header>
-                    <draggableComponent v-model="column.tasks" group="tasks" handle=".drag-handle" :animation="150" item-key="id">
+                    <draggableComponent v-model="column.tasks" :group="{ name: 'tasks', pull: alt ? 'clone' : true }"
+                        handle=".drag-handle" :animation="150" item-key="id">
                         <template #item="{ element: task }: { element: Task }">
                             <TrelloBoardTask :task="task" />
                         </template>
@@ -53,7 +54,7 @@ const columns = ref<Column[]>([
     { id: nanoid(), title: "QA", tasks: [] },
     { id: nanoid(), title: "Complete", tasks: [] },
 ]);
-
+const alt = useKeyModifier('Alt')
 </script>
 
 <style scoped></style>
