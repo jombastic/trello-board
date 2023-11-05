@@ -9,5 +9,5 @@ export interface Column {
 export interface Task {
     id: ID;
     title: string;
-    created: Date;
+    createdAt: Date;
 }
