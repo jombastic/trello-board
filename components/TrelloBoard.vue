@@ -1,12 +1,13 @@
 <template>
     <div class="flex gap-4 overflow-x-auto items-start">
         <div class="column bg-gray-200 p-5 rounded min-w-[250px]" v-for="column in columns" :key="column.id">
-            <header>
+            <header class="font-bold mb-4">
                 {{ column.title }}
             </header>
-            <div v-for="task in column.tasks" :key="task.id">
-                {{ task.title }}
-            </div>
+            <TrelloBoardTask v-for="task in column.tasks" :key="task.id" :task="task"/>
+            <footer>
+                <button class="text-gray-500">+ Add a Card</button>
+            </footer>
         </div>
     </div>
 </template>
